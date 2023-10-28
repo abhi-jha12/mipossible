@@ -49,7 +49,9 @@ const heroapi = {
   ],
 };
 
-
+const popularsales = {
+  
+};
 
 const highlight = {
   heading: "HIGHLIGHTS",
