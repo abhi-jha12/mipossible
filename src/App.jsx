@@ -26,6 +26,7 @@ const db = getFirestore();
 
 const App = () => {
   const [popularItemsData, setPopularItemsData] = useState({ items: [] });
+  const [topratedData, settopratedData] = useState({ items: [] });
 
   useEffect(() => {
     const fetchPopularItems = async () => {
@@ -49,9 +50,32 @@ const App = () => {
     };
 
     fetchPopularItems();
-  }, []);
-  console.log(popularItemsData);
+  },
+        useEffect(() => {
+    const fetchtopratedItems = async () => {
+      const topratedItemsCollection = collection(db, "topitems");
+      const snapshot = await getDocs(topratedItemsCollection);
+      const fetchedItems = snapshot.docs.map((doc) => {
+        const data = doc.data();
+        return {
+          id: doc.id,
+          title: data.title,
+          text: data.text,
+          rating: data.rating,
+          btn: data.btn,
+          img: data.img,
+          price: data.price,
+          color: data.color || "from-blue-600 to-blue-500",
+          shadow: data.shadow || "shadow-lg shadow-blue-500",
+        };
+      });
+      settopratedData({ items: fetchedItems });
+    };
 
+    fetchtopratedItems();
+  },[]));
+  console.log(popularItemsData);
+  console.log(topratedData);
   return (
     <>
       <Navbar />
@@ -60,7 +84,7 @@ const App = () => {
         <Hero heroapi={heroapi} />
         <Sales endpoint={popularItemsData} ifExists />
         <FlexContent endpoint={highlight} ifExists />
-        <Sales endpoint={toprateslaes} />
+        <Sales endpoint={topratedData} />
         <FlexContent endpoint={sneaker} />
         <Stories story={story} />
       </main>
