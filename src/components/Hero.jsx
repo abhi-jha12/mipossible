@@ -25,10 +25,11 @@ const Hero = ({ heroapi: { title, subtitle, btntext, btnurl, img, sociallinks, v
             </div>
             <div className='grid items-center absolute top-[33vh] lg:top-[27vh] right-0 gap-3'>
               {sociallinks?.map((val, i) => (
+                <a href={val.link} key={i} target="_blank" rel="noopener noreferrer">
                 <SocialLink
                   key={i}
                   icon={val.icon}
-                />
+                /> </a>
               ))}
             </div>
           </div>
