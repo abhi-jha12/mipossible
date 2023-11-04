@@ -27,9 +27,8 @@ import product12 from "../assets/product12.png";
 
 import facebook from "../assets/facebook.svg";
 import instagram from "../assets/instagram.svg";
-import twitter from "../assets/twitter.svg";
-import youtube from "../assets/youtube.svg";
-import messenger from "../assets/messenger.svg";
+import linkedin from "../assets/linkedin.svg";
+import pinterest from "../assets/pinterest.svg";
 
 const heroapi = {
   img: heroimg,
@@ -41,11 +40,10 @@ const heroapi = {
     { imgsrc: vcover3, clip: clip },
   ],
   sociallinks: [
-    { icon: facebook },
-    { icon: messenger },
-    { icon: instagram },
-    { icon: twitter },
-    { icon: youtube },
+    { icon: facebook, link: "https://www.facebook.com/profile.php?id=100095495437021"},
+    { icon: pinterest, link: "https://in.pinterest.com/mipossiblem" },
+    { icon: instagram, link: "https://www.instagram.com/mipossible01/"},
+    { icon: linkedin, link: "https://www.linkedin.com/in/mi-possible-67b926299/"},
   ],
 };
 
