@@ -3,10 +3,10 @@ import Item from "./utils/Item";
 import Title from "./utils/Title";
 
 const Allproducts = ({ ifExists, endpoint: { items } }) => {
-  const title = "Popular Sales";
+  const title = "All Products";
   return (
     <>
-      <div className="nike-container">
+      <div className="nike-container mt-20">
         <Title title={title} />
         <div
           className={`grid items-center justify-items-center gap-7 lg:gap-5 mt-6 mb-5 ${
