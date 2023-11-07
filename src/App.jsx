@@ -52,7 +52,7 @@ const App = () => {
     };
 
     fetchPopularItems();
-  },
+  }, []);
         useEffect(() => {
     const fetchtopratedItems = async () => {
       const topratedItemsCollection = collection(db, "topitems");
@@ -75,7 +75,7 @@ const App = () => {
     };
 
     fetchtopratedItems();
-  },[]));
+  },[]);
   console.log(popularItemsData);
   console.log(topratedData);
   return (
