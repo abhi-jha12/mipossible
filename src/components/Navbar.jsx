@@ -70,7 +70,17 @@ return (
             <ul className='flex items-center justify-center gap-2'>
                 <li className='grid items-center'>
                 <button type='button' onClick={user ? signOut : signInWithGoogle} className='border-none outline-none active:scale-110 transition-all duration-300 relative'>
-                        <UserIcon className={`icon-style ${navState && "text-slate-900 transition-all duration-300"}`} />
+                         {user && user.photoURL ? (
+                    // Display the user's profile image if they are signed in
+                    <img
+                        src={user.photoURL}
+                        alt="Profile"
+                        className={`icon-style rounded-full ${navState && "ring-2 ring-white"}`}
+                    />
+                ) : (
+                    // Display the UserIcon if no user is signed in
+                    <UserIcon className={`icon-style ${navState && "text-slate-900 transition-all duration-300"}`} />
+                )}
                            
                 </button>
                 </li>
