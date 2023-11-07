@@ -30,7 +30,7 @@ const db = getFirestore();
 const App = () => {
   const [popularItemsData, setPopularItemsData] = useState({ items: [] });
   const [topratedData, settopratedData] = useState({ items: [] });
-  const [allproducts, allproducts] = useState({ items: [] });
+  const [allproducts, setallproducts] = useState({ items: [] });
   useEffect(() => {
     const fetchPopularItems = async () => {
       const popularItemsCollection = collection(db, "popitems");
