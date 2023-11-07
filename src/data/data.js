@@ -33,7 +33,7 @@ import pinterest from "../assets/pinterest.svg";
 const heroapi = {
   img: heroimg,
   btntext: "Explore Product",
-  btnurl: "#",
+  btnurl: "/allproducts",
   videos: [
     { imgsrc: vcover1, clip: clip },
     { imgsrc: vcover2, clip: clip },
