@@ -9,6 +9,7 @@ import {
   Sales,
   Stories,
   Allproducts,
+  Topratedsales,
 } from "./components";
 import {
   heroapi,
@@ -76,8 +77,32 @@ const App = () => {
 
     fetchtopratedItems();
   },[]);
+  useEffect(() => {
+    const fetchallproducts = async () => {
+      const popularItemsCollection = collection(db, "products");
+      const snapshot = await getDocs(popularItemsCollection);
+      const fetchedItems = snapshot.docs.map((doc) => {
+        const data = doc.data();
+        return {
+          id: doc.id,
+          title: data.title,
+          text: data.text,
+          rating: data.rating,
+          btn: data.btn,
+          img: data.img,
+          price: data.price,
+          color: data.color || "from-blue-600 to-blue-500",
+          shadow: data.shadow || "shadow-lg shadow-blue-500",
+        };
+      });
+      setallproducts({ items: fetchedItems });
+    };
+
+    fetchallproducts();
+  }, []);
   console.log(popularItemsData);
   console.log(topratedData);
+  console.log(allproducts);
   return (
     <Router>
       <Navbar />
@@ -90,7 +115,7 @@ const App = () => {
               <Hero heroapi={heroapi} />
               <Sales endpoint={popularItemsData} ifExists />
               <FlexContent endpoint={highlight} ifExists />
-              <Sales endpoint={topratedData} />
+              <Topratedsales endpoint={topratedData} />
               <FlexContent endpoint={sneaker} />
               <Stories story={story} />
             </main>
@@ -99,7 +124,7 @@ const App = () => {
         <Route path="/allproducts" element={
         <main className="flex flex-col gap-16 relative">
           
-          
+           <Allproducts endpoint={allproducts} ifExists />
        </main>} />
        
       </Routes>
