@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
   Cart,
   FlexContent,
@@ -7,6 +8,7 @@ import {
   Navbar,
   Sales,
   Stories,
+  Allproducts,
 } from "./components";
 import {
   heroapi,
@@ -77,19 +79,32 @@ const App = () => {
   console.log(popularItemsData);
   console.log(topratedData);
   return (
-    <>
+    <Router>
       <Navbar />
       <Cart />
-      <main className="flex flex-col gap-16 relative">
-        <Hero heroapi={heroapi} />
-        <Sales endpoint={popularItemsData} ifExists />
-        <FlexContent endpoint={highlight} ifExists />
-        <Sales endpoint={topratedData} />
-        <FlexContent endpoint={sneaker} />
-        <Stories story={story} />
-      </main>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <main className="flex flex-col gap-16 relative">
+              <Hero heroapi={heroapi} />
+              <Sales endpoint={popularItemsData} ifExists />
+              <FlexContent endpoint={highlight} ifExists />
+              <Sales endpoint={topratedData} />
+              <FlexContent endpoint={sneaker} />
+              <Stories story={story} />
+            </main>
+          }
+        />
+        <Route path="/allproducts" element={
+        <main className="flex flex-col gap-16 relative">
+          
+          
+       </main>} />
+       
+      </Routes>
       <Footer footerAPI={footerAPI} />
-    </>
+    </Router>
   );
 };
 
