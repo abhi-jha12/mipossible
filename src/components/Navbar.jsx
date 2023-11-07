@@ -33,7 +33,7 @@ const Navbar = () => {
 return (
    <>
       <header className={
-        !navState ? 'absolute top-7 left-0 right-0 opacity-100 z-50' : 'fixed top-0 left-0 right-0 h-[9vh] flex items-center justify-center opacity-100 z-[200] blur-effect-theme'
+        !navState ? 'absolute top-0 left-0 right-0 h-[9vh] flex items-center justify-center  opacity-100 z-50 bg-[#38ACEC]' : 'fixed top-0 left-0 right-0 h-[9vh] flex items-center justify-center opacity-100 z-[200] blur-effect-theme'
       }>
         <nav className='flex items-center justify-between nike-container'>
             <div className='flex items-center'>
