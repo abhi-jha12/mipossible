@@ -1,5 +1,5 @@
 {
-  "name": "nike-store-commerce",
+  "name": "mipossible",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -18,9 +18,11 @@
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.0",
     "react-redux": "^8.0.4",
+    "react-router-dom": "^6.18.0",
     "tailwind-typewriter": "^1.0.1"
   },
   "devDependencies": {
+    "@types/node": "^20.8.10",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.1.0",
