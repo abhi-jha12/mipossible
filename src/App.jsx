@@ -24,6 +24,7 @@ import {
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 import firebaseConfig from "./data/firebaseConfig.js";
+import Loader from '../src/components/loader/Loader';
 initializeApp(firebaseConfig);
 const db = getFirestore();
 
@@ -31,6 +32,14 @@ const App = () => {
   const [popularItemsData, setPopularItemsData] = useState({ items: [] });
   const [topratedData, settopratedData] = useState({ items: [] });
   const [allproducts, setallproducts] = useState({ items: [] });
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    // Simulate a loading process, for example, fetching data
+    // This is where you would normally check if your app is ready
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000); // Adjust time as needed for your app's load time
+  }, []);
   useEffect(() => {
     const fetchPopularItems = async () => {
       const popularItemsCollection = collection(db, "popitems");
@@ -103,6 +112,9 @@ const App = () => {
   console.log(popularItemsData);
   console.log(topratedData);
   console.log(allproducts);
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <Router>
       <Navbar />
